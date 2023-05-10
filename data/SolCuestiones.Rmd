@@ -1,0 +1,43 @@
+---
+title: "Cuestiones"
+author: "sofia"
+date: "2023-05-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+#Cuestion 1
+```{r}
+# Set the variable 'texto' to the given text
+texto <- "Well, let Your Grace know, first of all, that they call me Lázaro de Tormes, son of Tomé González and Antona Pérez, natives of Tejares, village of Salamanca. My birth was within the Tormes River, for which reason I took the nickname; And it was like this: my father, may God forgive me, was in charge of providing a mill for an aceña that is on the bank of that river, in which he was a miller for more than fifteen years; And when my mother was pregnant one night in La Aceña, she gave birth to her and gave birth to me there. So I can truly say I was born in the river. Well, when I was an eight-year-old boy, they blamed my father for certain bad bleeding on the sacks of those who came there to grind, for which he was arrested, and confessed and did not deny, and suffered persecution for justice. I hope in God that he is in glory, for the Gospel calls them blessed. At this time a certain army was made against the Moors, among whom was my father (who at that time was exiled due to the disaster already mentioned), with the position of muleteer for a gentleman who went there. And with his lord, as a loyal servant, his life ended. My widow mother, as she saw herself without a husband and without a coat, decided to get close to the good ones because she was one of them, and she came to live in the city and rented a cabin and went to cook food for certain students, and washed the clothes at certain grooms of the commander of Magdalena's horses, so that he was frequenting the stables."
+
+
+# Use regular expressions to search for any character that is repeated exactly 131 times
+grep("(.)(?=.*\\1{130})", texto, perl=TRUE, value=TRUE)
+
+# Count the number of occurrences of the letter 'a' (without accent) in the text
+sum(grepl("a", texto, fixed=TRUE))
+
+# Count the number of vowels (unstressed) in the text
+sum(gregexpr("[aeiou]", texto, ignore.case=TRUE, perl=TRUE)[[1]] >= 0)
+
+# Find all words that begin with a vowel (without accent) preceded by one or more blank spaces
+grep("\\s[aeiou]\\S*", texto, ignore.case=TRUE, value=TRUE)
+
+
+```
+
+
+
